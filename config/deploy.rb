@@ -1,7 +1,7 @@
 lock "3.14.1"
 
-set :application, "b-team"
-set :repo_url, "git@github.com:Sny8/b-team.git"
+set :application, "b-team-furima"
+set :repo_url, "git@github.com:Sny8/b-team-furima.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
