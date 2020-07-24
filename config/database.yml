@@ -50,6 +50,6 @@ test:
 production:
   <<: *default
   database: b-team-furima_production
-  username: root            #rootに変更
+  username: root
   password: <%= ENV['DATABASE_PASSWORD'] %>
   socket: /var/lib/mysql/mysql.sock
