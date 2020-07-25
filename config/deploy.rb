@@ -1,7 +1,7 @@
 lock "3.14.1"
 
-set :application, "b-team-furima"
-set :repo_url, "git@github.com:Sny8/b-team-furima.git"
+set :application, "fleamarket_sample_75b"
+set :repo_url, "git@github.com:Sny8/fleamarket_sample_75b.git"
 
 set :linked_dirs, fetch(:linked_dirs, []).push('log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', 'public/system', 'public/uploads')
 
