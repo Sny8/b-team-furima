@@ -3,8 +3,8 @@
 |column|Type|Options|
 |------|----|-------|
 |nickname|string|null:false|
-|password|string|null:false, unique:true|
-|email|string|null:false|
+|email|string|null:false, unique:true|
+|password|string|null:false|
 ###Association
 - has_one:profile, dependent::destroy
 - has_one:point, dependent::destroy
