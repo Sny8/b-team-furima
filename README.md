@@ -90,8 +90,8 @@
 |prefecture_code|integer|null:false|
 |city|string|null:false|
 |block|integer|null:false|
-|building|string|null:false|
-|phone_number|intger|null:false|
+|building|string|
+|phone_number|intger|
 |user_id|references|null:false, foreign_key:true|
 ###Association
 - belongs_to:user
