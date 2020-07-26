@@ -62,13 +62,13 @@
 - has_many:comments, dependent::destroy
 - has_mamy:products_image
 - belongs_to :seller_user, class_name: 'User', foreign_key:seller_id
-- belongs_to :seller_user, class_name: 'User', foreign_key:seller_id
+- belongs_to :seller_user, class_name: 'User', foreign_key:buyer_id
 - belongs_to:brand
 - belongs_to:category
-- belongs_to:active_hash:condition
-- belongs_to:active_hash:status
-- belongs_to:active_hash:postage_payer
-- belongs_to:expectation_day
+- belongs_to_active_hash:condition
+- belongs_to_active_hash:status
+- belongs_to_active_hash:postage_payer
+- belongs_to_active_hash:expectation_day
 *Gem：jp_prefecture
 
 ##Product_Imageテーブル
@@ -133,7 +133,7 @@
 ##commentsテーブル
 |column|Type|Options|
 |------|----|-------|
-|comment|string|
+|comment|string|null:false|
 |user_id|references|null:false, foreign_key: true|
 |products|references|null:false, foreign_key: true|
 ###Association
@@ -148,7 +148,7 @@
 ###Association
 - belongs_to:user
 
-##Sns_Authenticationテーブル
+##Sns_Authenticationsテーブル
 |column|Type|Options|
 |------|----|-------|
 |provider|string|null:false|
@@ -157,7 +157,7 @@
 ###Association
 - belongs_to :user
 
-##credit_cardテーブル
+##credit_cardsテーブル
 |column|Type|Options|
 |------|----|-------|
 |card_number|integer|null:false,unique:true|
