@@ -62,7 +62,7 @@
 - has_many:comments, dependent::destroy
 - has_mamy:products_image
 - belongs_to :seller_user, class_name: 'User', foreign_key:seller_id
-- belongs_to :seller_user, class_name: 'User', foreign_key:buyer_id
+- belongs_to :buyer_user, class_name: 'User', foreign_key:buyer_id
 - belongs_to:brand
 - belongs_to:category
 - belongs_to_active_hash:condition
