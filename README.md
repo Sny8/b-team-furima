@@ -14,6 +14,7 @@
 - has_many:comments,dependent::destroy
 - has_many:likes,dependent::destroy
 - has_many:sns_authentications, dependent::destroy
+- has_many:credit_cards, dependent::destroy
 
 ##profileテーブル
 |column|Type|Options|
@@ -39,7 +40,7 @@
 |user_id|references|null:false, foreign_key:true|
 |review|string|null:false|
 ###Association
-- belongs_to_active_hash:evaluations
+- belongs_to_active_hash:evaluation
 - belongs_to:product
 - belongs_to:user
 
@@ -49,7 +50,6 @@
 |name|string|null:false|
 |price|integer|null:false|
 |condition|references|null:false, foreign_key:true|
-|image|string|null:false|
 |brand|references|null:false, foreign_key:true|
 |seller_user|references|null:false, foreign_key:true|
 |buyer_user|references|null:false, foreign_key:true|
@@ -60,7 +60,7 @@
 |prefecture_code|integer|null:false|
 ###Association
 - has_many:comments, dependent::destroy
-- has_mamy:products_image
+- has_mamy:products_images
 - belongs_to :seller_user, class_name: 'User', foreign_key:seller_id
 - belongs_to :buyer_user, class_name: 'User', foreign_key:buyer_id
 - belongs_to:brand
@@ -77,7 +77,7 @@
 |url|string|null:false|
 |product_id|references|null:false, foreign_key: true|
 ###Association
-- belongs_to:products
+- belongs_to:product
 
 ##Destinationテーブル
 |column|Type|Options|
@@ -109,7 +109,6 @@
 |column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-|products_id|references|null:false,foreign_key:true|
 ###Association
 - has_many :products
 
@@ -124,7 +123,7 @@
 ##Likesテーブル
 |column|Type|Options|
 |------|----|-------|
-|products_id|references|null:false, foreign_key: true|
+|product_id|references|null:false, foreign_key: true|
 |user_id|references|null:false, foreign_key: true|
 ###Association
 - belongs_to :user
@@ -135,7 +134,7 @@
 |------|----|-------|
 |comment|string|null:false|
 |user_id|references|null:false, foreign_key: true|
-|products|references|null:false, foreign_key: true|
+|product|references|null:false, foreign_key: true|
 ###Association
 - belongs_to:user
 - belongs_to:product
@@ -164,6 +163,7 @@
 |expiration_year|year|null:false|
 |expiration_month|date|null:false|
 |security_code|integer|null:false,unique:true|
+|user_id|references|null:false, foreign_key: true|
 ###Association
 - belongs_to:user
 
