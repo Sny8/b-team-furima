@@ -82,8 +82,8 @@
 ##Destinationテーブル
 |column|Type|Options|
 |------|----|-------|
-|first_name|string|null:false|
-|family_name|string|null:false|
+|first_name|references|null:false|
+|family_name|references|null:false|
 |first_name_kana|string|null:false|
 |family_name_kana|string|null:false|
 |post_code|integer|null:false|
@@ -91,7 +91,7 @@
 |city|string|null:false|
 |block|integer|null:false|
 |building|string|
-|phone_number|intger|
+|phone_number|string|
 |user_id|references|null:false, foreign_key:true|
 ###Association
 - belongs_to:user
@@ -101,7 +101,7 @@
 |column|Type|Options|
 |------|----|-------|
 |name|string|null:false|
-|ancestry|string|null:false|
+|ancestry|string|
 ###Association
 - has_many :products
 
@@ -159,7 +159,6 @@
 ##credit_cardsテーブル
 |column|Type|Options|
 |------|----|-------|
-|card_number|integer|null:false,unique:true|
 |expiration_year|year|null:false|
 |expiration_month|date|null:false|
 |security_code|integer|null:false,unique:true|
