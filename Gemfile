@@ -73,3 +73,5 @@ group :production do
 end
 
 gem 'devise'
+gem 'jp_prefecture'
+gem 'jquery-rails'
