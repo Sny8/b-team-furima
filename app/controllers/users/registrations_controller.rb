@@ -22,6 +22,25 @@ class Users::RegistrationsController < Devise::RegistrationsController
     render :new_destination
   end
 
+  def create_destination
+    @user = User.new(session["devise.regist_data"]["user"])
+    @destination = Destination.new(destination_params)
+    unless @destination.valid?
+      flash.now[:alert] = @destination.errors.full_messages
+      render :new_destination and return
+    end
+    @user.build_destination(@destination.attributes)
+    @user.save
+    session["devise.regist_data"]["user"].clear
+    sign_in(:user, @user)
+  end
+
+  protected
+  
+  def destination_params
+    params.require(:destination).permit(:first_name, :family_name, :first_name_kana, :family_name_kana, :post_code, :prefecture_code, :city, :block, :building, :phone_number)
+  end
+
   # GET /resource/edit
   # def edit
   #   super
