@@ -1,13 +1,22 @@
 class ProductsController < ApplicationController
+
   def index
-    @products = Product.all
   end
 
   def new
+    @product = Product.new
+    @product.product_images.new
   end
 
   def create
+    @product = Product.new(product_params)
+    @product.save 
   end
+
+  def show
+    
+  end
+
 
   def edit
   end
@@ -16,6 +25,10 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+  end
+
+  def product_params
+    params.require(:product).permit(:name, :condition, images_attributes: [:url])
   end
 
 end

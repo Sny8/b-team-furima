@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   root 'products#index'
-  # resources :products, expect: show
+  resources :products,  only: [:new, :create]
 end
 
 
