@@ -1,0 +1,49 @@
+.main
+  %div.main__block
+    = form_with model:@product, local: true do |f|
+      %h2.sell__block__head
+        商品の情報を入力
+      .sell__block__form
+        .sell__block__form__upload
+          %h3.sell__block__form__upload__head
+            商品画像
+            %span.require 必須
+          %p 最大10枚までアップロードできます
+          .post__drop__box__container
+            .prev-content
+            .label-content
+              %label{for: "item_images_attributes_0_image", class: "abel-box", id: "label-box--0"}
+                %pre.label-box__text-visible クリックしてファイルをアップデート
+            .hidden-content
+              = f.fields_for :product_images do |i|
+                =i.file_field :product_image, class: "hidden-field"
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][1][image]", id: "item_images_attributes_1_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][2][image]", id: "item_images_attributes_2_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][3][image]", id: "item_images_attributes_3_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][4][image]", id: "item_images_attributes_4_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][5][image]", id: "item_images_attributes_5_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][6][image]", id: "item_images_attributes_6_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][7][image]", id: "item_images_attributes_7_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][8][image]", id: "item_images_attributes_8_image"}
+                %input{class:"hidden-field", type: "file", name: "item[images_attributes][9][image]", id: "item_images_attributes_9_image"}
+      .sell__block__form__name
+        .form-group__name
+          %label
+            商品名
+            %span.require 必須
+          %div
+            =f.text_field :name, placeholder: "商品名", class: "form__group__name"
+
+          .form-group__name
+          %label
+            状態
+            %span.require 必須
+          %div
+            =form_with model: @product, local: true do |f|
+              =f.select :condition_id, [['選択してください', id: 1],['新品、未使用', id: 2],['未使用に近い', id: 3],['目立った傷や汚れなし', id: 4],['やや傷や汚れあり', id: 5],['傷や汚れあり', id: 6],['全体的に状態が悪い', id: 7]]
+
+
+
+      .sell__block__form__btn
+        %div
+          =f.submit "出品する", class: "btn-default__btn-red"
