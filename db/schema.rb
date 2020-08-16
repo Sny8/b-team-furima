@@ -22,13 +22,11 @@ ActiveRecord::Schema.define(version: 2020_08_11_014345) do
 
   create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
+    t.bigint "condition_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "imagephoto"
-    t.integer "condition_id", null: false
-    t.integer "expection_day_id", null: false
-    t.integer "postage_payer_id", null: false
-    t.integer "status_id", null: false
+    t.index ["condition_id"], name: "index_products_on_condition_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
