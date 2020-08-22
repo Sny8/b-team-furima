@@ -1,0 +1,66 @@
+%h2 お届け先情報登録
+= form_for @destination do |f|
+  = render "devise/shared/error_messages", resource: @destination
+
+  .field
+    = f.label :お名前（性）
+    %p 必須
+    %br/
+    = f.text_field :family_name, autofocus: true, autocomplete: "family_name"
+
+  .field
+    = f.label :お名前（名）
+    %p 必須
+    %br/
+    = f.text_field :first_name, autofocus: true, autocomplete: "first_name"
+
+  .field
+    = f.label :お名前カナ（性）
+    %p 必須
+    %br/
+    = f.text_field :family_name_kana, autofocus: true, autocomplete: "family_name_kana"
+
+  .field
+    = f.label :お名前カナ（名）
+    %p 必須
+    %br/
+    = f.text_field :first_name_kana, autofocus: true, autocomplete: "first_name_kana"
+
+  .field
+    = f.label :郵便番号
+    %p 必須
+    %br/
+    = f.text_field :post_code
+
+  .field
+    = f.label :都道府県
+    %p 必須
+    %br/
+    = f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :name, :name, include_blank: true
+
+  .field
+    = f.label :市区町村
+    %p 必須
+    %br/
+    = f.text_field :city
+
+  .field
+    = f.label :番地
+    %p 必須
+    %br/
+    = f.text_field :block
+
+  .field
+    = f.label :建物名
+    %br/
+    = f.text_field :building
+
+  .field
+    = f.label :電話
+    %br/
+    = f.text_field :phone_number
+
+  .actions
+    = f.submit "Sign up"
+    
+= render "devise/shared/links"
